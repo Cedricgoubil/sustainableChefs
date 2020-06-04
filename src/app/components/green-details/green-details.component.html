@@ -1,0 +1,36 @@
+<div class="container mb-5">
+  <div class="mt-3">
+    <a routerLink="/green-listing" class="btn btn-outline-success btn-sm">
+      <i class="fa fa-arrow-circle-left"> Back</i>
+    </a>
+  </div>
+  <div class="card mt-4" style="max-width: 940px;">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <img src="{{ greenProductsDetails?.image }}" style="height: 100%;" class="card-img"
+          alt="{{ greenProductsDetails?.binomialName }}" onError="this.src='/assets/img/undefinedveggy.jpg';" />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h3 class="card-title text-center" style="color: #5cb85c;">
+            {{ greenProductsDetails?.commonName | titlecase }}
+          </h3>
+          <ul class="mt-4">
+            <li>Scientific name: {{ greenProductsDetails?.binomialName | titlecase }}</li>
+            <li [ngStyle]="{'color':getSeasonalColor(greenProductsDetails?.season)}">
+              Peak season: {{ greenProductsDetails?.season | titlecase }}
+            </li>
+          </ul>
+          <hr *ngIf="greenProductsDetails.calories?.length > 0">
+          <h5 *ngIf="greenProductsDetails.calories?.length > 0" class="text-center" style="color: #5cb85c;">Nutrition
+            per 100g</h5>
+          <ul>
+            <li *ngIf="greenProductsDetails.calories?.length > 0">Calories: {{ greenProductsDetails?.calories }} </li>
+            <li *ngIf="greenProductsDetails.calories?.length > 0">Proteins: {{ greenProductsDetails?.protein }}g
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

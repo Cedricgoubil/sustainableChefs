@@ -1,0 +1,40 @@
+<div class="container mb-5">
+  <div class="mt-3">
+    <a routerLink="/fruit-listing" class="btn btn-outline-danger btn-sm">
+      <i class="fa fa-arrow-circle-left"> Back</i>
+    </a>
+  </div>
+  <div class="card mt-4" style="max-width: 940px;">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <img src="{{ fruitProductsDetails?.image }}" style="height: 100%;" class="card-img"
+          alt="{{ fruitProductsDetails?.binomialName }}" onError="this.src='/assets/img/undefinedveggy.jpg';" />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h3 class="card-title text-center" style="color: #dc3545;">
+            {{ fruitProductsDetails?.commonName | titlecase }}
+          </h3>
+          <ul class="mt-4">
+            <li>Scientific name: {{ fruitProductsDetails?.binomialName | titlecase }}</li>
+            <li [ngStyle]="{'color':getSeasonalColor(fruitProductsDetails?.season)}">
+              Peak season: {{ fruitProductsDetails?.season | titlecase }}
+            </li>
+          </ul>
+          <hr *ngIf="fruitProductsDetails.calories?.length > 0">
+          <h5 *ngIf="fruitProductsDetails.calories?.length > 0" class="text-center" style="color: #dc3545;">Nutrition
+            per 100g</h5>
+          <ul>
+            <li *ngIf="fruitProductsDetails.calories?.length > 0">Calories: {{ fruitProductsDetails?.calories }} </li>
+            <li *ngIf="fruitProductsDetails.calories?.length > 0">Proteins: {{ fruitProductsDetails?.protein }}g
+            </li>
+          </ul>
+          <hr *ngIf="fruitProductsDetails.fact?.length > 0">
+          <h6 *ngIf="fruitProductsDetails.fact?.length > 0" class="text-center"
+            style="color: #dc3545; font-size: 20px;">Facts:
+            {{ fruitProductsDetails?.fact | titlecase  }} </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

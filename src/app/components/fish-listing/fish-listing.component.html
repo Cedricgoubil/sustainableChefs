@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="mt-3">
+    <a routerLink="/" class="btn btn-outline-info btn-sm">
+      <i class="fa fa-arrow-circle-left"> Back</i>
+    </a>
+  </div>
+  <h1 class="text-center">Fish listing</h1>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="btn-group mt-2" role="group">
+        <button type="button" class="btn btn-info btn-sm mr-2" (click)="resetFishList()">Reset
+          List</button>
+        <button type="button" class="btn btn-outline-info btn-sm mr-2" *ngIf="!saltyWaterFilter"
+          (click)="toggleSaltyFish()">Salt
+          water fish</button>
+        <button type="button" class="btn btn-info btn-sm mr-2" *ngIf="saltyWaterFilter" (click)="toggleSaltyFish()">Salt
+          water fish</button>
+        <button type="button" class="btn btn-outline-info btn-sm" *ngIf="!freshWaterFilter"
+          (click)="toggleFreshFish()">Fresh
+          water fish</button>
+        <button type="button" class="btn btn-info btn-sm" *ngIf="freshWaterFilter" (click)="toggleFreshFish()">Fresh
+          water fish</button>
+      </div>
+    </div>
+    <div class="input-group input-group-sm mt-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="inputGroup-sizing-sm"><i class="fas fa-search"></i></span>
+      </div>
+      <input class="form-control" type="text" placeholder="Search for species..." [(ngModel)]="searchTerm" />
+    </div>
+    <div class="col-12 text-center">
+      <h4 class="mt-2" *ngIf="(fishListing | fishFilter: searchTerm)?.length == 0" style="color:#17a2b8">
+        Oops, something went wrong! Please check the spelling
+      </h4>
+    </div>
+    <div *ngIf="fishListing?.length > 0; else Spinner" class="card-group">
+      <ng-container *ngFor="let fish of fishListing
+      | fishFilter: searchTerm
+      | saltyFilter: saltyWaterFilter
+      | freshFilter: freshWaterFilter
+      | paginate: { itemsPerPage: 18, currentPage: firstPage }">
+        <div routerLink="/fish-details/{{ fish?.id }}" class="card-body mt-2 ml-1 mr-1 mb-2 bg-white rounded">
+          <img class="card-img-top" src="{{ fish?.image }}" title="image"
+            onError="this.src='/assets/img/undefinedfish.jpg';" />
+          <h3 class="card-title mt-2" style="color: #17a2b8;">
+            {{ fish?.commonName | titlecase }}
+          </h3>
+          <ul>
+            <li>
+              Water environment:
+              {{ fish?.water | titlecase }}
+            </li>
+            <li>Sector of catch: {{ fish?.sector | titlecase }}</li>
+            <li [ngStyle]="{'color':getEndangeredColor(fish?.conservationStatus)}">
+              {{ fish?.conservationStatus | titlecase }}
+            </li>
+          </ul>
+          <a routerLink="/fish-details/{{ fish?.id }}" class="btn btn-outline-info btn-sm">Details</a>
+        </div>
+      </ng-container>
+    </div>
+    <div class="offset-md-4">
+      <pagination-controls class="pagination" (pageChange)="onPageChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+  <ng-template #Spinner>
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </ng-template>
+</div>

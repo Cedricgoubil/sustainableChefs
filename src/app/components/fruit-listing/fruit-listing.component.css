@@ -1,0 +1,47 @@
+h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 100;
+}
+
+.card-body {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-width:352px;
+  max-width:352px;
+  min-height:396px;
+}
+
+.card-body:hover {
+  cursor: pointer;
+}
+
+img {
+  min-width:310px;
+  max-width:310px;
+  min-height:200px;
+  max-height:200px;
+}
+
+li{
+  list-style: circle;
+}
+
+div label:hover {
+  color: #dc3545;
+}
+
+.pagination /deep/ .ngx-pagination .current {
+  background: #dc3545;
+  border-radius: 25px;
+  color: #f2f2f2;
+}
+
+.pagination /deep/ .ngx-pagination li:hover:not(.active) a {
+  background-color: #f2f2f2;
+  color: #dc3545;
+}
+
+.fa.fa-spinner {
+  margin-top: 5%;
+  margin-left: 45%; 
+  color: #dc3545;
+}

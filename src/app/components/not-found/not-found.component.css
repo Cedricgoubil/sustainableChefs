@@ -1,0 +1,41 @@
+@keyframes floating {
+  from { transform: translateY(0px); }
+  65%  { transform: translateY(15px); }
+  to   { transform: translateY(-0px); }
+}
+
+body{
+background-image: url('https://mars-404.templateku.co/img/star.svg'),linear-gradient(to bottom, #05007A, #4D007D);
+height: 500px;
+margin: 0;
+overflow: hidden;
+}
+
+.logo404 {
+color: #ffffff;
+font-size: 20vh;
+text-align: center;
+margin-top: 30px;
+}
+
+h4 {
+color: white;
+font-size: 10vh;
+text-align: center;
+margin-top: 30px;
+}
+
+.subtitle{
+color: white;
+font-size: 5vh;
+text-align: center;
+margin-top: 50px;
+}
+
+.astronaut{
+position: absolute;
+top: 18vmin;
+left: 10vmin;
+height: 40vmin;
+animation: floating 3s infinite ease-in-out;
+}
