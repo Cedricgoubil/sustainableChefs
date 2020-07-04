@@ -3,10 +3,11 @@ h1 {
   font-weight: 100;
 }
 
-.card-body {
+.fruits-listing {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  min-width:352px;
-  max-width:352px;
+  margin: 5px;
+  min-width:370px;
+  max-width:370px;
   min-height:396px;
 }
 
@@ -15,8 +16,6 @@ h1 {
 }
 
 img {
-  min-width:310px;
-  max-width:310px;
   min-height:200px;
   max-height:200px;
 }
@@ -40,8 +39,14 @@ div label:hover {
   color: #dc3545;
 }
 
-.fa.fa-spinner {
+/* .fa.fa-spinner {
   margin-top: 5%;
   margin-left: 45%; 
   color: #dc3545;
+} */
+
+@media only screen and (min-width: 375px) and (max-width: 812px) {
+  .fruits-listing {
+    margin: auto;
+  }
 }
