@@ -5,10 +5,8 @@ h1 {
 
 .fruits-listing {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 5px;
-  min-width:370px;
-  max-width:370px;
-  min-height:396px;
+  min-width: 300px;
+  margin: 10px;
 }
 
 .card-body:hover {
@@ -16,6 +14,7 @@ h1 {
 }
 
 img {
+  object-fit: cover;
   min-height:200px;
   max-height:200px;
 }
@@ -28,22 +27,21 @@ div label:hover {
   color: #dc3545;
 }
 
-.pagination /deep/ .ngx-pagination .current {
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.controls /deep/ .ngx-pagination .current {
   background: #dc3545;
   border-radius: 25px;
   color: #f2f2f2;
 }
 
-.pagination /deep/ .ngx-pagination li:hover:not(.active) a {
+.controls /deep/ .ngx-pagination li:hover:not(.active) a {
   background-color: #f2f2f2;
   color: #dc3545;
 }
-
-/* .fa.fa-spinner {
-  margin-top: 5%;
-  margin-left: 45%; 
-  color: #dc3545;
-} */
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
   .fruits-listing {

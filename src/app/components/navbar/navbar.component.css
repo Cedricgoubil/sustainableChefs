@@ -16,7 +16,15 @@ a.navbar-brand {
 }
 
 @media (max-width: 995px) {
-  p {
+  .fish-caught {
     display: none; 
   }
+  .navbar-nav,.nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around
+  }
 }
+
+

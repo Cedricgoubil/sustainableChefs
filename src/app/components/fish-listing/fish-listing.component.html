@@ -34,33 +34,40 @@
         Oops, something went wrong! Please check the spelling
       </h4>
     </div>
-    <div class="card fish-listing" *ngFor="let fish of fishListing
+    <div class="col-sm-12">
+      <div class="card-deck">
+        <ng-container *ngFor="let fish of fishListing
       | fishFilter: searchTerm
       | saltyFilter: saltyWaterFilter
       | freshFilter: freshWaterFilter
       | paginate: { itemsPerPage: 18, currentPage: firstPage }">
-      <div routerLink="/fish-details/{{ fish?.id }}" class="card-body ">
-        <img class="card-img-top" src="{{ fish?.image }}" title="image"
-          onError="this.src='/assets/img/undefinedfish.jpg';" />
-        <h3 class="card-title mt-2" style="color: #17a2b8;">
-          {{ fish?.commonName | titlecase }}
-        </h3>
-        <ul>
-          <li>
-            Water environment:
-            {{ fish?.water | titlecase }}
-          </li>
-          <li>Sector of catch: {{ fish?.sector | titlecase }}</li>
-          <li [ngStyle]="{'color':getEndangeredColor(fish?.conservationStatus)}">
-            {{ fish?.conservationStatus | titlecase }}
-          </li>
-        </ul>
-        <a routerLink="/fish-details/{{ fish?.id }}" class="btn btn-outline-info btn-sm">Details</a>
+          <div class="card fish-listing">
+            <div routerLink="/fish-details/{{ fish?.id }}" class="card-body ">
+              <img class="card-img" src="{{ fish?.image }}" title="image"
+                onError="this.src='/assets/img/undefinedfish.jpg';" />
+              <h3 class="card-title mt-2" style="color: #17a2b8;">
+                {{ fish?.commonName | titlecase }}
+              </h3>
+              <ul>
+                <li>
+                  Water environment:
+                  {{ fish?.water | titlecase }}
+                </li>
+                <li>Sector of catch: {{ fish?.sector | titlecase }}</li>
+                <li [ngStyle]="{'color':getEndangeredColor(fish?.conservationStatus)}">
+                  {{ fish?.conservationStatus | titlecase }}
+                </li>
+              </ul>
+              <a routerLink="/fish-details/{{ fish?.id }}" class="btn btn-outline-info btn-sm">Details</a>
+            </div>
+          </div>
+        </ng-container>
       </div>
-    </div>
-    <div class="offset-md-4">
-      <pagination-controls class="pagination" (pageChange)="onPageChange($event)">
-      </pagination-controls>
+      <div class="pagination mt-3">
+        <pagination-controls class="controls" (pageChange)="onPageChange($event)" previousLabel="" nextLabel=""
+          [autoHide]="true">
+        </pagination-controls>
+      </div>
     </div>
   </div>
 </div>

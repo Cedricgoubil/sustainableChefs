@@ -4,7 +4,7 @@
       <i class="fal fa-chevron-double-left"> Back</i>
     </a>
   </div>
-  <h1 class="text-center">Greens listing</h1>
+  <h1 class="text-center">Vegetables listing</h1>
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="btn-group mt-2" role="group">
@@ -48,7 +48,9 @@
         Oops, something went wrong! Please check the spelling
       </h4>
     </div>
-    <div class="card greens-listing" *ngFor="let green of greenListing
+    <div class="col-sm-12">
+      <div class="card-deck">
+        <ng-container *ngFor="let green of greenListing
       | greenFilter: searchTerm
       | mushroomFilter: isMushroomFilter
       | herbFilter: isHerbFilter
@@ -57,27 +59,32 @@
       | fallFilter: isFallFilter
       | winterFilter: isWinterFilter
       | paginate: { itemsPerPage: 18, currentPage: firstPage }">
-      <div routerLink="/green-details/{{ green?.id }}" class="card-body mt-3 ml-1 mr-1 mb-2 bg-white rounded">
-        <img class="card-img-top" src="{{ green?.image }}" alt="Card image"
-          onError="this.src='/assets/img/undefinedveggy.jpg';" />
-        <h3 class="card-title mt-2" style="color: #5cb85c;">
-          {{ green?.commonName | titlecase }}
-        </h3>
-        <ul>
-          <li>
-            Scientific name:
-            {{ green?.binomialName | titlecase }}
-          </li>
-          <li [ngStyle]="{'color':getSeasonalColor(green?.season)}">
-            Peak season: {{ green?.season | titlecase }}
-          </li>
-        </ul>
-        <a routerLink="/green-details/{{ green?.id }}" class="btn btn-outline-success btn-sm">Details</a>
+          <div class="card greens-listing">
+            <div routerLink="/green-details/{{ green?.id }}" class="card-body">
+              <img class="card-img" src="{{ green?.image }}" alt="Card image"
+                onError="this.src='/assets/img/undefinedveggy.jpg';" />
+              <h3 class="card-title mt-2" style="color: #5cb85c;">
+                {{ green?.commonName | titlecase }}
+              </h3>
+              <ul>
+                <li>
+                  Scientific name:
+                  {{ green?.binomialName | titlecase }}
+                </li>
+                <li [ngStyle]="{'color':getSeasonalColor(green?.season)}">
+                  Peak season: {{ green?.season | titlecase }}
+                </li>
+              </ul>
+              <a routerLink="/green-details/{{ green?.id }}" class="btn btn-outline-success btn-sm">Details</a>
+            </div>
+          </div>
+        </ng-container>
       </div>
-    </div>
-    <div class="offset-md-4">
-      <pagination-controls class="pagination" (pageChange)="onPageChange($event)">
-      </pagination-controls>
+      <div class="pagination mt-3">
+        <pagination-controls class="controls" (pageChange)="onPageChange($event)" previousLabel="" nextLabel=""
+          [autoHide]="true">
+        </pagination-controls>
+      </div>
     </div>
   </div>
 </div>

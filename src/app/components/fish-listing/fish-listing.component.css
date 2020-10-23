@@ -5,10 +5,8 @@ h1 {
 
 .fish-listing {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 5px;
-  min-width:370px;
-  max-width:370px;
-  min-height:396px;
+  min-width: 300px;
+  margin: 10px;
 }
 
 .card-body:hover {
@@ -29,13 +27,18 @@ div label:hover {
   color: #17a2b8;
 }
 
-.pagination /deep/ .ngx-pagination .current {
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.controls /deep/ .ngx-pagination .current {
   background: #17a2b8;
   border-radius: 25px;
   color: #f2f2f2;
 }
 
-.pagination /deep/ .ngx-pagination li:hover:not(.active) a {
+.controls /deep/ .ngx-pagination li:hover:not(.active) a {
   background-color: #f2f2f2;
   color: #17a2b8;
 }
