@@ -37,6 +37,7 @@ export class GreenListingComponent implements OnInit {
       this.isFallFilter = false;
       this.isWinterFilter = false;
       this.isHerbFilter = false;
+      this.firstPage = 1;
     } else {
       this.isMushroomFilter = false;
     }
@@ -50,6 +51,7 @@ export class GreenListingComponent implements OnInit {
       this.isFallFilter = false;
       this.isWinterFilter = false;
       this.isMushroomFilter = false;
+      this.firstPage = 1;
     } else {
       this.isHerbFilter = false;
     }
@@ -63,6 +65,7 @@ export class GreenListingComponent implements OnInit {
       this.isWinterFilter = false;
       this.isMushroomFilter = false;
       this.isHerbFilter = false;
+      this.firstPage = 1;
     } else {
       this.isSpringFilter = false;
     }
@@ -76,6 +79,7 @@ export class GreenListingComponent implements OnInit {
       this.isWinterFilter = false;
       this.isMushroomFilter = false;
       this.isHerbFilter = false;
+      this.firstPage = 1;
     } else {
       this.isSummerFilter = false;
     }
@@ -89,6 +93,7 @@ export class GreenListingComponent implements OnInit {
       this.isWinterFilter = false;
       this.isMushroomFilter = false;
       this.isHerbFilter = false;
+      this.firstPage = 1;
     } else {
       this.isFallFilter = false;
     }
@@ -102,6 +107,7 @@ export class GreenListingComponent implements OnInit {
       this.isFallFilter = false;
       this.isMushroomFilter = false;
       this.isHerbFilter = false;
+      this.firstPage = 1;
     } else {
       this.isWinterFilter = false;
     }

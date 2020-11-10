@@ -28,6 +28,7 @@ export class FishListingComponent implements OnInit {
     if (!this.saltyWaterFilter) {
       this.saltyWaterFilter = true;
       this.freshWaterFilter = false;
+      this.firstPage = 1;
     } else {
       this.saltyWaterFilter = false;
     }
@@ -37,6 +38,7 @@ export class FishListingComponent implements OnInit {
     if (!this.freshWaterFilter) {
       this.freshWaterFilter = true;
       this.saltyWaterFilter = false;
+      this.firstPage = 1;
     } else {
       this.freshWaterFilter = false;
     }

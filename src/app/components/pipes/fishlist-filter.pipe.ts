@@ -14,7 +14,7 @@ export class ListFilterPipe implements PipeTransform {
     return fishFilterTransform.filter(
       pipe(fishCard => {
         return (
-          fishCard.commonName.toUpperCase().indexOf(searchTerm.toUpperCase()) === 0
+          fishCard.commonName.toUpperCase().match(searchTerm.toUpperCase())
         );
       })
     );

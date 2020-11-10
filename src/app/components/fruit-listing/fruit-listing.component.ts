@@ -33,6 +33,7 @@ export class FruitListingComponent implements OnInit {
       this.isSummerFilter = false;
       this.isFallFilter = false;
       this.isWinterFilter = false;
+      this.firstPage = 1;
     } else {
       this.isSpringFilter = false;
     }
@@ -44,6 +45,7 @@ export class FruitListingComponent implements OnInit {
       this.isSpringFilter = false;
       this.isFallFilter = false;
       this.isWinterFilter = false;
+      this.firstPage = 1;
     } else {
       this.isSummerFilter = false;
     }
@@ -55,6 +57,7 @@ export class FruitListingComponent implements OnInit {
       this.isSpringFilter = false;
       this.isSummerFilter = false;
       this.isWinterFilter = false;
+      this.firstPage = 1;
     } else {
       this.isFallFilter = false;
     }
@@ -66,6 +69,7 @@ export class FruitListingComponent implements OnInit {
       this.isSpringFilter = false;
       this.isSummerFilter = false;
       this.isFallFilter = false;
+      this.firstPage = 1;
     } else {
       this.isWinterFilter = false;
     }

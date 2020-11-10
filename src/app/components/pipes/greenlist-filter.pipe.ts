@@ -14,7 +14,7 @@ export class GreenListFilterPipe implements PipeTransform {
     return greenFilterTransform.filter(
       pipe(greenCard => {
         return (
-          greenCard.commonName.toUpperCase().indexOf(searchTerm.toUpperCase()) === 0
+          greenCard.commonName.toUpperCase().match(searchTerm.toUpperCase())
         );
       })
     );
