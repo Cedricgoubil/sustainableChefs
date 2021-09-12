@@ -113,41 +113,64 @@
                       color: getEndangeredColor(fish?.conservationStatus)
                     }"
                   >
+                    <em class="mr-2">Sustainability: </em>
                     {{ fish?.conservationStatus | titlecase }}
                   </div>
-
                   <ng-container
-                    *ngIf="fish?.conservationStatus === 'least concern'"
+                    *ngIf="fish?.conservationStatus === 'sustainable'"
                     ><i
                       class="fas fa-horizontal-rule fa-2x"
-                      style="margin-right: 1%; color: green"
+                      style="margin-right: 1%; color: #04aa6d"
+                    ></i>
+                    <i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="margin-right: 1%; color: #04aa6d"
+                    ></i>
+                    <i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="margin-right: 1%; color: #04aa6d"
+                    ></i>
+                    <i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="margin-right: 1%; color: #04aa6d"
+                    ></i
+                  ></ng-container>
+                  <ng-container
+                    *ngIf="fish?.conservationStatus === 'near threatened'"
+                    ><i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="margin-right: 1%; color: #ffcc00"
+                    ></i
+                    ><i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="margin-right: 1%; color: #ffcc00"
+                    ></i
+                    ><i
+                      class="fas fa-horizontal-rule fa-2x"
+                      style="color: #ffcc00"
                     ></i
                   ></ng-container>
                   <ng-container
                     *ngIf="fish?.conservationStatus === 'threatened'"
                     ><i
                       class="fas fa-horizontal-rule fa-2x"
-                      style="margin-right: 1%; color: orange"
+                      style="margin-right: 1%; color: #ff5c33"
                     ></i
                     ><i
                       class="fas fa-horizontal-rule fa-2x"
-                      style="color: orange"
+                      style="margin-right: 1%; color: #ff5c33"
                     ></i
                   ></ng-container>
                   <ng-container
                     *ngIf="fish?.conservationStatus === 'endangered'"
                     ><i
                       class="fas fa-horizontal-rule fa-2x"
-                      style="margin-right: 1%; color: red"
+                      style="color: #e60000"
                     ></i
-                    ><i
-                      class="fas fa-horizontal-rule fa-2x"
-                      style="margin-right: 1%; margin-right: 1%; color: red"
-                    ></i
-                    ><i
-                      class="fas fa-horizontal-rule fa-2x"
-                      style="color: red"
-                    ></i
+                  ></ng-container>
+                  <ng-container
+                    *ngIf="fish?.conservationStatus === 'data deficient'"
+                    ><i class="fas fa-exclamation-triangle"></i
                   ></ng-container>
                   <div style="display: flex; justify-content: flex-end">
                     <a

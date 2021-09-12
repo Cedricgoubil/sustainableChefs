@@ -4,8 +4,8 @@
       <i class="fal fa-chevron-left"> Back</i>
     </a>
   </div>
-  <div class="card mt-4" style="max-width: 940px">
-    <div class="row no-gutters">
+  <div class="card mt-4">
+    <div class="row">
       <div class="col-md-6">
         <img
           src="{{ fishDetails?.image }}"
@@ -20,30 +20,82 @@
           <h3 class="card-title text-center" style="color: #17a2b8">
             {{ fishDetails?.commonName | titlecase }}
           </h3>
-          <ul class="mt-4">
+          <div class="text-center">
+            <div
+              [ngStyle]="{
+                color: getEndangeredColor(fishDetails?.conservationStatus)
+              }"
+            >
+              <em class="mr-2">Sustainability: </em>
+              {{ fishDetails?.conservationStatus | titlecase }}
+            </div>
+            <ng-container
+              *ngIf="fishDetails?.conservationStatus === 'sustainable'"
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #04aa6d"
+              ></i>
+              <i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #04aa6d"
+              ></i>
+              <i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #04aa6d"
+              ></i>
+              <i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #04aa6d"
+              ></i
+            ></ng-container>
+            <ng-container
+              *ngIf="fishDetails?.conservationStatus === 'near threatened'"
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #ffcc00"
+              ></i
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #ffcc00"
+              ></i
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="color: #ffcc00"
+              ></i
+            ></ng-container>
+            <ng-container
+              *ngIf="fishDetails?.conservationStatus === 'threatened'"
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #ff5c33"
+              ></i
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="margin-right: 1%; color: #ff5c33"
+              ></i
+            ></ng-container>
+            <ng-container
+              *ngIf="fishDetails?.conservationStatus === 'endangered'"
+              ><i
+                class="fas fa-horizontal-rule fa-2x"
+                style="color: #e60000"
+              ></i
+            ></ng-container>
+            <ng-container
+              *ngIf="fishDetails?.conservationStatus === 'data deficient'"
+              ><i class="fas fa-exclamation-triangle"></i
+            ></ng-container>
+          </div>
+          <ul>
             <li>
               Scientific name: {{ fishDetails?.binomialName | titlecase }}
             </li>
             <li>Sector of catch: {{ fishDetails?.sector | titlecase }}</li>
             <li>Water environment: {{ fishDetails?.water | titlecase }}</li>
-            <li
-              [ngStyle]="{
-                color: getEndangeredColor(fishDetails?.conservationStatus)
-              }"
-            >
-              {{ fishDetails?.conservationStatus | titlecase }}
-            </li>
             <li class="text-danger" *ngIf="fishDetails.avoid?.length > 0">
               Avoid: {{ fishDetails?.avoid | titlecase }}
             </li>
           </ul>
-          <!-- <hr *ngIf="fishDetails?.conservationStatus == 'least concern'"> -->
-          <div
-            *ngIf="fishDetails?.conservationStatus == 'least concern'"
-            class="text-center text-info"
-          >
-            <i class="fas fa-thumbs-up fa-5x"></i>
-          </div>
           <hr *ngIf="fishDetails.calories?.length > 0" />
           <h5
             *ngIf="fishDetails.calories?.length > 0"
@@ -56,7 +108,7 @@
             <li *ngIf="fishDetails.calories?.length > 0">
               Calories: {{ fishDetails?.calories }}
             </li>
-            <li *ngIf="fishDetails.calories?.length > 0">
+            <li *ngIf="fishDetails.protein?.length > 0">
               Proteins: {{ fishDetails?.protein }}g
             </li>
           </ul>
@@ -64,5 +116,5 @@
       </div>
     </div>
   </div>
-  <h6 class="text-center mt-3 mb-3">{{ fishDetails?.comments }}</h6>
+  <p class="text-center mt-3 mb-3">{{ fishDetails?.comments }}</p>
 </div>

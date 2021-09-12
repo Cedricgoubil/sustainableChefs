@@ -26,14 +26,14 @@ export class FishDetailsComponent implements OnInit {
 
   getEndangeredColor(conservationStatus) {
     switch (conservationStatus) {
-      case 'least concern':
-        return 'green';
+      case 'sustainable':
+        return '#04aa6d';
       case 'near threatened':
         return '#ffcc00';
       case 'threatened':
-        return 'orange';
+        return '#ff5c33';
       case 'endangered':
-        return 'red';
+        return '#e60000';
     }
   }
 }
