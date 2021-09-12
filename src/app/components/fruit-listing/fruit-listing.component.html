@@ -1,80 +1,169 @@
-<div class="container">
-  <div class="mt-3">
-    <a routerLink="/" class="btn btn-outline-danger btn-sm">
-      <i class="fal fa-chevron-double-left"> Back</i>
-    </a>
-  </div>
-  <h1 class="text-center">Fruits listing</h1>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="btn-group mt-2" role="group">
-        <button type="button" class="btn btn-danger btn-sm mr-2" title="reset" (click)="resetFruitList()"><i
-            class="far fa-sync"></i>
-        </button>
-        <button type="button" class="btn btn-outline-danger btn-sm mr-2" *ngIf="!isSpringFilter"
-          (click)="displaySpringFruits()">Spring</button>
-        <button type="button" class="btn btn-danger btn-sm mr-2" *ngIf="isSpringFilter"
-          (click)="displaySpringFruits()">Spring</button>
-        <button type="button" class="btn btn-outline-danger btn-sm mr-2" *ngIf="!isSummerFilter"
-          (click)="displaySummerFruits()">Summer</button>
-        <button type="button" class="btn btn-danger btn-sm mr-2" *ngIf="isSummerFilter"
-          (click)="displaySummerFruits()">Summer</button>
-        <button type="button" class="btn btn-outline-danger btn-sm mr-2" *ngIf="!isFallFilter"
-          (click)="displayFallFruits()">Fall</button>
-        <button type="button" class="btn btn-danger btn-sm mr-2" *ngIf="isFallFilter"
-          (click)="displayFallFruits()">Fall</button>
-        <button type="button" class="btn btn-outline-danger btn-sm" *ngIf="!isWinterFilter"
-          (click)="displayWinterFruits()">Winter</button>
-        <button type="button" class="btn btn-danger btn-sm" *ngIf="isWinterFilter"
-          (click)="displayWinterFruits()">Winter</button>
+<body>
+  <div class="container">
+    <div class="mt-3">
+      <a routerLink="/" class="btn btn-light btn-sm">
+        <i class="fal fa-chevron-left"> Back</i>
+      </a>
+    </div>
+    <h1 class="text-center">Fruits listing</h1>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="btn-group mt-2" role="group">
+          <button
+            type="button"
+            class="btn btn-danger btn-sm mr-2"
+            title="reset"
+            (click)="resetFruitList()"
+          >
+            <i class="far fa-sync"></i>
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm mr-2"
+            *ngIf="!isSpringFilter"
+            (click)="displaySpringFruits()"
+          >
+            Spring
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm mr-2"
+            *ngIf="isSpringFilter"
+            (click)="displaySpringFruits()"
+          >
+            Spring
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm mr-2"
+            *ngIf="!isSummerFilter"
+            (click)="displaySummerFruits()"
+          >
+            Summer
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm mr-2"
+            *ngIf="isSummerFilter"
+            (click)="displaySummerFruits()"
+          >
+            Summer
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm mr-2"
+            *ngIf="!isFallFilter"
+            (click)="displayFallFruits()"
+          >
+            Fall
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm mr-2"
+            *ngIf="isFallFilter"
+            (click)="displayFallFruits()"
+          >
+            Fall
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            *ngIf="!isWinterFilter"
+            (click)="displayWinterFruits()"
+          >
+            Winter
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            *ngIf="isWinterFilter"
+            (click)="displayWinterFruits()"
+          >
+            Winter
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="input-group input-group-sm mt-2">
-      <div class="input-group-prepend">
-        <span class="input-group-text bg-danger text-white"><i class="fal fa-search"></i></span>
+      <div class="input-group input-group-sm my-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-danger text-white"
+            ><i class="fal fa-search"></i
+          ></span>
+        </div>
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Search for fruits..."
+          [(ngModel)]="searchTerm"
+        />
       </div>
-      <input class="form-control" type="text" placeholder="Search for fruits..." [(ngModel)]="searchTerm" />
-    </div>
-    <div class="col-12 text-center">
-      <h4 class="mt-2" *ngIf="(fruitListing | greenFilter: searchTerm)?.length == 0" style="color:#dc3545">
-        Oops, something went wrong! Please check the spelling
-      </h4>
-    </div>
-    <div class="col-sm-12">
-      <div class="card-deck">
-        <ng-container *ngFor="let fruit of fruitListing
-      | greenFilter: searchTerm
-      | springFilter: isSpringFilter
-      | summerFilter: isSummerFilter
-      | fallFilter: isFallFilter
-      | winterFilter: isWinterFilter
-      | paginate: { itemsPerPage: 18, currentPage: firstPage }">
-          <div class="card fruits-listing">
-            <div routerLink="/fruit-details/{{ fruit?.id }}" class="card-body">
-              <img class="card-img" src="{{ fruit?.image }}" alt="Card image"
-                onError="this.src='/assets/img/undefinedveggy.jpg';" />
-              <h3 class="card-title mt-2" style="color: #dc3545;">
-                {{ fruit?.commonName | titlecase }}
-              </h3>
-              <ul>
-                <li>
-                  Scientific name:
-                  {{ fruit?.binomialName | titlecase }}
-                </li>
-                <li [ngStyle]="{'color':getSeasonalColor(fruit?.season)}">
-                  Peak season: {{ fruit?.season | titlecase }}
-                </li>
-              </ul>
-              <a routerLink="/fruit-details/{{ fruit?.id }}" class="btn btn-outline-danger btn-sm">Details</a>
+      <div class="col-12 text-center">
+        <h4
+          class="mt-2"
+          *ngIf="(fruitListing | greenFilter: searchTerm)?.length == 0"
+          style="color: #dc3545"
+        >
+          Oops, something went wrong! Please check the spelling
+        </h4>
+      </div>
+      <div class="col-sm-12">
+        <div class="card-deck">
+          <ng-container
+            *ngFor="
+              let fruit of fruitListing
+                | greenFilter: searchTerm
+                | springFilter: isSpringFilter
+                | summerFilter: isSummerFilter
+                | fallFilter: isFallFilter
+                | winterFilter: isWinterFilter
+                | paginate: { itemsPerPage: 18, currentPage: firstPage }
+            "
+          >
+            <div class="card fruits-listing mb-2">
+              <div
+                routerLink="/fruit-details/{{ fruit?.id }}"
+                class="card-body"
+                title="click for more details"
+              >
+                <img
+                  class="card-img"
+                  src="{{ fruit?.image }}"
+                  alt="Card image"
+                  onError="this.src='/assets/img/undefinedveggy.jpg';"
+                />
+                <h4 class="card-title mt-2" style="color: #dc3545">
+                  {{ fruit?.commonName | titlecase }}
+                </h4>
+                <ul>
+                  <li>
+                    Scientific name:
+                    {{ fruit?.binomialName | titlecase }}
+                  </li>
+                  <li [ngStyle]="{ color: getSeasonalColor(fruit?.season) }">
+                    Peak season: {{ fruit?.season | titlecase }}
+                  </li>
+                </ul>
+                <div style="display: flex; justify-content: flex-end">
+                  <a
+                    routerLink="/fruit-details/{{ fruit?.id }}"
+                    class="btn btn-danger btn-sm"
+                    >Details</a
+                  >
+                </div>
+              </div>
             </div>
-          </div>
-        </ng-container>
-      </div>
-      <div class="pagination mt-3">
-        <pagination-controls class="controls" (pageChange)="onPageChange($event)" previousLabel="" nextLabel=""
-          [autoHide]="true">
-        </pagination-controls>
+          </ng-container>
+        </div>
+        <div class="pagination mt-3">
+          <pagination-controls
+            class="controls"
+            (pageChange)="onPageChange($event)"
+            previousLabel=""
+            nextLabel=""
+            [autoHide]="true"
+          >
+          </pagination-controls>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
