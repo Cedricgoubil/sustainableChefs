@@ -1,7 +1,8 @@
 body {
   background-image: url("../../../assets/img/pic.jpg");
   background-size: cover;
-  min-height: 600px;
+  width: 100%;
+  min-height: 700px;
 }
 
 .card {
@@ -21,6 +22,9 @@ p {
 }
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
+  body {
+    max-height: 100%;
+  }
   h1 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
       sans-serif;
