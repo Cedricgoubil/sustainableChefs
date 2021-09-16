@@ -67,7 +67,7 @@
           </button>
         </div>
       </div>
-      <div class="input-group input-group-sm my-2">
+      <div class="input-group input-group-sm m-2">
         <div class="input-group-prepend">
           <span
             class="input-group-text bg-info text-white"
@@ -80,6 +80,7 @@
           type="text"
           placeholder="Search for species..."
           [(ngModel)]="searchTerm"
+          (keyup)="resetListToFirstPage()"
         />
       </div>
       <div class="col-12 text-center">

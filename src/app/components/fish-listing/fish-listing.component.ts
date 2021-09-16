@@ -68,6 +68,10 @@ export class FishListingComponent implements OnInit {
     }
   }
 
+  resetListToFirstPage() {
+    this.firstPage = 1;
+  }
+
   getEndangeredColor(conservationStatus) {
     switch (conservationStatus) {
       case 'sustainable':

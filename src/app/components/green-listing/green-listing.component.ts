@@ -133,6 +133,10 @@ export class GreenListingComponent implements OnInit {
     }
   }
 
+  resetListToFirstPage() {
+    this.firstPage = 1;
+  }
+
   getSeasonalColor(season) {
     switch (season) {
       case 'spring':
