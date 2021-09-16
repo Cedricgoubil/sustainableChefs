@@ -8,80 +8,78 @@
     <h1 class="text-center">Fruits listing</h1>
     <div class="row">
       <div class="col-md-12 text-center">
-        <div class="btn-group mt-2" role="group">
-          <button
-            type="button"
-            class="btn btn-danger btn-sm mr-2"
-            title="reset"
-            (click)="resetFruitList()"
-          >
-            <i class="far fa-sync"></i>
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-danger btn-sm mr-2"
-            *ngIf="!isSpringFilter"
-            (click)="displaySpringFruits()"
-          >
-            Spring
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-sm mr-2"
-            *ngIf="isSpringFilter"
-            (click)="displaySpringFruits()"
-          >
-            Spring
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-danger btn-sm mr-2"
-            *ngIf="!isSummerFilter"
-            (click)="displaySummerFruits()"
-          >
-            Summer
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-sm mr-2"
-            *ngIf="isSummerFilter"
-            (click)="displaySummerFruits()"
-          >
-            Summer
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-danger btn-sm mr-2"
-            *ngIf="!isFallFilter"
-            (click)="displayFallFruits()"
-          >
-            Fall
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-sm mr-2"
-            *ngIf="isFallFilter"
-            (click)="displayFallFruits()"
-          >
-            Fall
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-danger btn-sm"
-            *ngIf="!isWinterFilter"
-            (click)="displayWinterFruits()"
-          >
-            Winter
-          </button>
-          <button
-            type="button"
-            class="btn btn-danger btn-sm"
-            *ngIf="isWinterFilter"
-            (click)="displayWinterFruits()"
-          >
-            Winter
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mr-2"
+          title="reset"
+          (click)="resetFruitList()"
+        >
+          <i class="far fa-sync"></i>
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-sm mr-2"
+          *ngIf="!isSpringFilter"
+          (click)="displaySpringFruits()"
+        >
+          Spring
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mr-2"
+          *ngIf="isSpringFilter"
+          (click)="displaySpringFruits()"
+        >
+          Spring
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-sm mr-2"
+          *ngIf="!isSummerFilter"
+          (click)="displaySummerFruits()"
+        >
+          Summer
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mr-2"
+          *ngIf="isSummerFilter"
+          (click)="displaySummerFruits()"
+        >
+          Summer
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-sm mr-2"
+          *ngIf="!isFallFilter"
+          (click)="displayFallFruits()"
+        >
+          Fall
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mr-2"
+          *ngIf="isFallFilter"
+          (click)="displayFallFruits()"
+        >
+          Fall
+        </button>
+        <button
+          type="button"
+          class="btn btn-light btn-sm"
+          *ngIf="!isWinterFilter"
+          (click)="displayWinterFruits()"
+        >
+          Winter
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm"
+          *ngIf="isWinterFilter"
+          (click)="displayWinterFruits()"
+        >
+          Winter
+        </button>
       </div>
       <div class="input-group input-group-sm my-2">
         <div class="input-group-prepend">
