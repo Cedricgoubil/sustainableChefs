@@ -10,10 +10,6 @@ p {
   font-weight: 100;
 }
 
-.navbar-nav .dropdown-menu {
-  position: absolute;
-}
-
 a.navbar-brand {
   color: #3060a8 !important;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
@@ -29,5 +25,9 @@ a.navbar-brand {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: absolute;
   }
 }

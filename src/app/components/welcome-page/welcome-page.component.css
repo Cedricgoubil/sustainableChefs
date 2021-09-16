@@ -1,8 +1,9 @@
 body {
-  background-image: url("../../../assets/img/pic.jpg");
-  background-size: cover;
+  background-image: url("../../../assets/img/welcome-page.jpg");
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 700px;
+  min-height: 800px;
 }
 
 .card {
