@@ -19,7 +19,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-outline-info btn-sm mr-2"
+            class="btn btn-light btn-sm mr-2"
             *ngIf="!saltyWaterFilter"
             (click)="toggleSaltyFish()"
           >
@@ -35,7 +35,7 @@
           </button>
           <button
             type="button"
-            class="btn btn-outline-info btn-sm"
+            class="btn btn-light btn-sm mr-2"
             *ngIf="!freshWaterFilter"
             (click)="toggleFreshFish()"
           >
@@ -43,11 +43,27 @@
           </button>
           <button
             type="button"
-            class="btn btn-info btn-sm"
+            class="btn btn-info btn-sm mr-2"
             *ngIf="freshWaterFilter"
             (click)="toggleFreshFish()"
           >
             Fresh water
+          </button>
+          <button
+            type="button"
+            class="btn btn-light btn-sm"
+            *ngIf="!sustainableFishFilter"
+            (click)="toggleSustainableFish()"
+          >
+            Sustainable Fish
+          </button>
+          <button
+            type="button"
+            class="btn btn-info btn-sm"
+            *ngIf="sustainableFishFilter"
+            (click)="toggleSustainableFish()"
+          >
+            Sustainable Fish
           </button>
         </div>
       </div>
@@ -83,6 +99,7 @@
                 | fishFilter: searchTerm
                 | saltyFilter: saltyWaterFilter
                 | freshFilter: freshWaterFilter
+                | sustainableFilter: sustainableFishFilter
                 | paginate: { itemsPerPage: 18, currentPage: firstPage }
             "
           >

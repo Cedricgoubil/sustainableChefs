@@ -174,10 +174,54 @@
                     Scientific name:
                     {{ green?.binomialName | titlecase }}
                   </li>
-                  <li [ngStyle]="{ color: getSeasonalColor(green?.season) }">
-                    Peak season: {{ green?.season | titlecase }}
-                  </li>
                 </ul>
+                <div class="my-3">
+                  <h6 class="text-center"><em>Best season to buy</em></h6>
+                  <div style="display: flex; justify-content: space-around">
+                    <div
+                      class="text-success"
+                      *ngIf="green?.season === 'spring'"
+                    >
+                      <h5><em>Spring</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(green?.season === 'spring')"
+                    >
+                      <small>Spring</small>
+                    </div>
+                    <div
+                      class="text-warning"
+                      *ngIf="green?.season === 'summer'"
+                    >
+                      <h5><em>Summer</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(green?.season === 'summer')"
+                    >
+                      <small>Summer</small>
+                    </div>
+                    <div style="color: brown" *ngIf="green?.season === 'fall'">
+                      <h5><em>Fall</em></h5>
+                    </div>
+                    <div class="text-muted" *ngIf="!(green?.season === 'fall')">
+                      <small>Fall</small>
+                    </div>
+                    <div
+                      class="text-primary"
+                      *ngIf="green?.season === 'winter'"
+                    >
+                      <h5><em>Winter</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(green?.season === 'winter')"
+                    >
+                      <small>Winter</small>
+                    </div>
+                  </div>
+                </div>
                 <div style="display: flex; justify-content: flex-end">
                   <a
                     routerLink="/green-details/{{ green?.id }}"

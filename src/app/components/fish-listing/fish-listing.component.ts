@@ -11,6 +11,7 @@ export class FishListingComponent implements OnInit {
   fishListing: FishDto[];
   saltyWaterFilter: boolean;
   freshWaterFilter: boolean;
+  sustainableFishFilter: boolean;
   searchTerm: string;
 
   selectedFishType = '';
@@ -44,15 +45,26 @@ export class FishListingComponent implements OnInit {
     }
   }
 
+  toggleSustainableFish() {
+    if (!this.sustainableFishFilter) {
+      this.sustainableFishFilter = true;
+      this.firstPage = 1;
+    } else {
+      this.sustainableFishFilter = false;
+    }
+  }
+
   resetFishList() {
-    if (!this.freshWaterFilter || !this.saltyWaterFilter) {
+    if (!this.freshWaterFilter || !this.saltyWaterFilter || !this.sustainableFishFilter) {
       this.freshWaterFilter = false;
       this.saltyWaterFilter = false;
+      this.sustainableFishFilter = false;
       this.searchTerm = '';
       this.firstPage = 1;
     } else {
       this.freshWaterFilter = true;
       this.saltyWaterFilter = true;
+      this.sustainableFishFilter = true;
     }
   }
 

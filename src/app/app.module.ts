@@ -35,6 +35,7 @@ import { MushroomFilterPipe } from './components/pipes/mushroom-filter.pipe';
 import { HerbFilterPipe } from './components/pipes/herb-filter.pipe';
 import { SpringFilterPipe } from './components/pipes/spring-filter.pipe';
 import { SummerFilterPipe } from './components/pipes/summer-filter.pipe';
+import { SustainableFilterPipe } from './components/pipes/sustainable-filter.pipe';
 import { FallFilterPipe } from './components/pipes/fall-filter.pipe';
 import { WinterFilterPipe } from './components/pipes/winter-filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -62,6 +63,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HerbFilterPipe,
     SpringFilterPipe,
     SummerFilterPipe,
+    SustainableFilterPipe,
     FallFilterPipe,
     WinterFilterPipe,
     NotFoundComponent

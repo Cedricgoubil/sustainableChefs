@@ -138,10 +138,54 @@
                     Scientific name:
                     {{ fruit?.binomialName | titlecase }}
                   </li>
-                  <li [ngStyle]="{ color: getSeasonalColor(fruit?.season) }">
-                    Peak season: {{ fruit?.season | titlecase }}
-                  </li>
                 </ul>
+                <div class="my-3">
+                  <h6 class="text-center"><em>Best season to buy</em></h6>
+                  <div style="display: flex; justify-content: space-around">
+                    <div
+                      class="text-success"
+                      *ngIf="fruit?.season === 'spring'"
+                    >
+                      <h5><em>Spring</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(fruit?.season === 'spring')"
+                    >
+                      <small>Spring</small>
+                    </div>
+                    <div
+                      class="text-warning"
+                      *ngIf="fruit?.season === 'summer'"
+                    >
+                      <h5><em>Summer</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(fruit?.season === 'summer')"
+                    >
+                      <small>Summer</small>
+                    </div>
+                    <div style="color: brown" *ngIf="fruit?.season === 'fall'">
+                      <h5><em>Fall</em></h5>
+                    </div>
+                    <div class="text-muted" *ngIf="!(fruit?.season === 'fall')">
+                      <small>Fall</small>
+                    </div>
+                    <div
+                      class="text-primary"
+                      *ngIf="fruit?.season === 'winter'"
+                    >
+                      <h5><em>Winter</em></h5>
+                    </div>
+                    <div
+                      class="text-muted"
+                      *ngIf="!(fruit?.season === 'winter')"
+                    >
+                      <small>Winter</small>
+                    </div>
+                  </div>
+                </div>
                 <div style="display: flex; justify-content: flex-end">
                   <a
                     routerLink="/fruit-details/{{ fruit?.id }}"
