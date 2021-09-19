@@ -99,7 +99,6 @@
         <h4
           class="mt-2"
           *ngIf="(fruitListing | greenFilter: searchTerm)?.length == 0"
-          style="color: #dc3545"
         >
           Oops, something went wrong! Please check the spelling
         </h4>
@@ -118,11 +117,7 @@
             "
           >
             <div class="card fruits-listing mb-2">
-              <div
-                routerLink="/fruit-details/{{ fruit?.id }}"
-                class="card-body"
-                title="click for more details"
-              >
+              <div class="card-body">
                 <img
                   class="card-img"
                   src="{{ fruit?.image }}"
@@ -130,14 +125,12 @@
                   onError="this.src='/assets/img/undefinedveggy.jpg';"
                 />
                 <h4 class="card-title mt-2" style="color: #dc3545">
-                  {{ fruit?.commonName | titlecase }}
+                  {{ fruit?.commonName | titlecase
+                  }}<small style="font-size: small">
+                    ({{ fruit?.binomialName | titlecase }})</small
+                  >
                 </h4>
-                <ul>
-                  <li>
-                    Scientific name:
-                    {{ fruit?.binomialName | titlecase }}
-                  </li>
-                </ul>
+                <hr />
                 <ng-container
                   *ngIf="
                     fruit?.season === 'spring' ||
@@ -217,18 +210,30 @@
                     </div>
                   </div>
                 </ng-container>
-                <div style="display: flex; justify-content: flex-end">
+                <hr />
+                <div class="text-center my-3">
+                  <h6><em> Nutrition per 100g</em></h6>
+                </div>
+                <ul>
+                  <li *ngIf="fruit?.calories?.length > 0">
+                    Calories: {{ fruit?.calories }}
+                  </li>
+                  <li *ngIf="fruit?.protein?.length > 0">
+                    Proteins: {{ fruit?.protein }} g
+                  </li>
+                </ul>
+                <!-- <div style="display: flex; justify-content: flex-end">
                   <a
                     routerLink="/fruit-details/{{ fruit?.id }}"
                     class="btn btn-danger btn-sm"
                     >Details</a
                   >
-                </div>
+                </div> -->
               </div>
             </div>
           </ng-container>
         </div>
-        <div class="pagination mt-3">
+        <div class="pagination my-1">
           <pagination-controls
             class="controls"
             (pageChange)="onPageChange($event)"

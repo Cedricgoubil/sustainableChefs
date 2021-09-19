@@ -27,7 +27,7 @@ export class FruitServices {
       return changes.map(action => {
         const data = action.payload.doc.data() as FruitDto;
         data.id = action.payload.doc.id;
-        console.log(data);
+        // console.log(data);
         return data;
       });
     }));

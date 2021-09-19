@@ -23,7 +23,7 @@ export class GreenServices {
       return changes.map(action => {
         const data = action.payload.doc.data() as GreenDto;
         data.id = action.payload.doc.id;
-        console.log(data);
+        // console.log(data);
         return data;
       });
     }));

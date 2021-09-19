@@ -34,25 +34,25 @@
                 Peak season: {{ fruitProductsDetails?.season | titlecase }}
               </li>
             </ul>
-            <hr *ngIf="fruitProductsDetails.calories?.length > 0" />
+            <hr *ngIf="fruitProductsDetails?.calories?.length > 0" />
             <h5
-              *ngIf="fruitProductsDetails.calories?.length > 0"
+              *ngIf="fruitProductsDetails?.calories?.length > 0"
               class="text-center"
               style="color: #dc3545"
             >
               Nutrition per 100g
             </h5>
             <ul>
-              <li *ngIf="fruitProductsDetails.calories?.length > 0">
+              <li *ngIf="fruitProductsDetails?.calories?.length > 0">
                 Calories: {{ fruitProductsDetails?.calories }}
               </li>
-              <li *ngIf="fruitProductsDetails.calories?.length > 0">
+              <li *ngIf="fruitProductsDetails?.protein?.length > 0">
                 Proteins: {{ fruitProductsDetails?.protein }}g
               </li>
             </ul>
-            <hr *ngIf="fruitProductsDetails.fact?.length > 0" />
+            <hr *ngIf="fruitProductsDetails?.fact?.length > 0" />
             <h6
-              *ngIf="fruitProductsDetails.fact?.length > 0"
+              *ngIf="fruitProductsDetails?.fact?.length > 0"
               class="text-center"
               style="color: #dc3545; font-size: 20px"
             >

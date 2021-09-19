@@ -13,11 +13,11 @@ export class FactsComponent implements OnInit {
   ngOnInit() {
   }
 
-  projectcountstop: any = setInterval(() => {
+  fishCaughtPerDay: any = setInterval(() => {
     this.count++;
 
     if (this.count === 6301369863) {
-      clearInterval(this.projectcountstop);
+      clearInterval(this.fishCaughtPerDay);
     }
 
   }, 0.1)

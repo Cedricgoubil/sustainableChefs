@@ -19,7 +19,6 @@ h1 {
 }
 
 .greens-listing:hover {
-  cursor: pointer;
   transform: scale(1.02);
 }
 
@@ -35,10 +34,6 @@ h1 {
 
 li {
   list-style: circle;
-}
-
-div label:hover {
-  color: #5cb85c;
 }
 
 .pagination {

@@ -13,8 +13,6 @@ export class FishListingComponent implements OnInit {
   freshWaterFilter: boolean;
   sustainableFishFilter: boolean;
   searchTerm: string;
-
-  selectedFishType = '';
   firstPage: number;
 
   constructor(

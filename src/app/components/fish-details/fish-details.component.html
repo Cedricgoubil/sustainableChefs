@@ -93,23 +93,23 @@
               </li>
               <li>Sector of catch: {{ fishDetails?.sector | titlecase }}</li>
               <li>Water environment: {{ fishDetails?.water | titlecase }}</li>
-              <li class="text-danger" *ngIf="fishDetails.avoid?.length > 0">
+              <li class="text-danger" *ngIf="fishDetails?.avoid?.length > 0">
                 Avoid: {{ fishDetails?.avoid | titlecase }}
               </li>
             </ul>
-            <hr *ngIf="fishDetails.calories?.length > 0" />
+            <hr *ngIf="fishDetails?.calories?.length > 0" />
             <h5
-              *ngIf="fishDetails.calories?.length > 0"
+              *ngIf="fishDetails?.calories?.length > 0"
               class="text-center"
               style="color: #17a2b8"
             >
               Nutrition per 100g
             </h5>
             <ul>
-              <li *ngIf="fishDetails.calories?.length > 0">
+              <li *ngIf="fishDetails?.calories?.length > 0">
                 Calories: {{ fishDetails?.calories }}
               </li>
-              <li *ngIf="fishDetails.protein?.length > 0">
+              <li *ngIf="fishDetails?.protein?.length > 0">
                 Proteins: {{ fishDetails?.protein }}g
               </li>
             </ul>

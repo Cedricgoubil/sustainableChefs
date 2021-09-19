@@ -87,7 +87,6 @@
         <h4
           class="mt-2"
           *ngIf="(fishListing | fishFilter: searchTerm)?.length == 0"
-          style="color: #17a2b8"
         >
           Oops, something went wrong! Please check the spelling
         </h4>
@@ -202,7 +201,7 @@
             </div>
           </ng-container>
         </div>
-        <div class="pagination mt-3">
+        <div class="pagination my-1">
           <pagination-controls
             class="controls"
             (pageChange)="onPageChange($event)"
