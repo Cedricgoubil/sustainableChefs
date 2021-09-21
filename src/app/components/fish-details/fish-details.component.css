@@ -11,12 +11,5 @@ body {
 }
 
 img {
-  box-shadow: 10px 0 5px -2px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
-}
-
-.fa.fa-spinner {
-  margin-top: 5%;
-  margin-left: 45%;
-  color: #17a2b8;
+  object-fit: contain;
 }

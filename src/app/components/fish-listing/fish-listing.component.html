@@ -115,7 +115,10 @@
                   onError="this.src='/assets/img/undefinedfish.jpg';"
                 />
                 <h4 class="card-title mt-2" style="color: #17a2b8">
-                  {{ fish?.commonName | titlecase }}
+                  {{ fish?.commonName | titlecase
+                  }}<small style="font-size: medium">
+                    ({{ fish?.binomialName | titlecase }})</small
+                  >
                 </h4>
                 <ul>
                   <li>
