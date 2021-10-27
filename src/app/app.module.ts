@@ -71,7 +71,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'chefssustainablefish'),
+    // AngularFireModule.initializeApp(environment.firebase, 'sustainablechefs'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
