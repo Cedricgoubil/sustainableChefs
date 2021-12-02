@@ -7561,8 +7561,6 @@ readers do not read off random characters that represent icons */
   content: "\f718";
 }
 
-/* Test */
-
 .fa-spider-web:before {
   content: "\f719";
 }
