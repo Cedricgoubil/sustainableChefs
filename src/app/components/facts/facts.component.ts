@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./facts.component.css']
 })
 export class FactsComponent implements OnInit {
-  count: number = 6301368500;
+  count: number = 100;
   stop: boolean
+
   constructor() { }
 
   ngOnInit() {
@@ -15,11 +16,8 @@ export class FactsComponent implements OnInit {
 
   fishCaughtPerDay: any = setInterval(() => {
     this.count++;
-
-    if (this.count === 6301369863) {
+    if (this.count === 863) {
       clearInterval(this.fishCaughtPerDay);
     }
-
   }, 0.1)
-
 }
