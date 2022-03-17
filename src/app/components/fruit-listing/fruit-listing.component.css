@@ -44,7 +44,7 @@ li {
 }
 
 .controls /deep/ .ngx-pagination li:hover:not(.active) a {
-  background-color: #f2f2f2;
+  background-color: transparent;
   border-radius: 25px;
-  color: #dc3545;
+  color: #ffffff;
 }

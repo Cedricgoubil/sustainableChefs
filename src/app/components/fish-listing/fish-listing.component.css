@@ -49,7 +49,7 @@ div label:hover {
 }
 
 .controls /deep/ .ngx-pagination li:hover:not(.active) a {
-  background-color: #f2f2f2;
+  background-color: transparent;
   border-radius: 25px;
-  color: #17a2b8;
+  color: #ffffff;
 }
