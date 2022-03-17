@@ -13,6 +13,7 @@ export class FactsComponent implements OnInit {
 
   ngOnInit() {
   }
+  // Test
 
   fishCaughtPerDay: any = setInterval(() => {
     this.count++;
